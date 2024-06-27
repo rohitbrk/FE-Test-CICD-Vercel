@@ -1,0 +1,28 @@
+name: Vercel Procution deployment
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    DeployProd:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: install vercel cli
+              run: npm i vercel -g
+
+            - name: pull vercel env info
+              run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+            - name: build artifacts
+              run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+            - name: deploy artifacts
+              run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
