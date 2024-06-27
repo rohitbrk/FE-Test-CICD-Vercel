@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <div>Hey there 2 !</div>
+      <div>Hey there part 2 !</div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
