@@ -12,6 +12,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+* {
+  text-align: center;
+  font-size: large;
+}
 
 a {
   font-weight: 500;

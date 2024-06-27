@@ -13,6 +13,8 @@ function App() {
         onSubmit={(e) => {
           e.preventDefault();
           setResult(add(num1, num2));
+          setNum1(0);
+          setNum2(0);
         }}
       >
         <input
@@ -20,11 +22,13 @@ function App() {
           value={num1}
           onChange={(e) => setNum1(e.target.value)}
         />
+        <br />
         <input
           type="number"
           value={num2}
           onChange={(e) => setNum2(e.target.value)}
         />
+        <br />
         <button type="submit">Get Result</button>
       </form>
       <div>Result: {result}</div>
